@@ -52,4 +52,13 @@ def self.create(name:, breed:)
   dog
 end
 
+
+def update
+  sql = <<-SQL
+  UPDATE dogs
+     SET name = ?, breed = ?
+     WHERE id = ?
+  SQL
+  DB[:conn].execute(sql,self.name,self.breed)
+end
 end #ends Dog Class
