@@ -27,7 +27,7 @@ def self.drop_table
 end
 
 def self.new_from_db(row)
-  
+  binding.pry
 
 end
 
@@ -63,7 +63,7 @@ def update
 end
 
 def self.find_by_id(id)
-  
+
      sql = <<-SQL
      SELECT * from dogs
      WHERE id = ?
