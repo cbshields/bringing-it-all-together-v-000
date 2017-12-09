@@ -79,7 +79,7 @@ def self.find_by_id(id)
     else
       dog = self.create(name: name, breed: breed)
     end
-    song
+    dog
 
    end
 
