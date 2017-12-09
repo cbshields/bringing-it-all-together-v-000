@@ -26,8 +26,8 @@ def self.drop_table
   DB[:conn].execute("DROP TABLE IF EXISTS dogs")
 end
 
-def self.new_from_database
-
+def self.new_from_db(row)
+  
 
 end
 
@@ -61,4 +61,18 @@ def update
   SQL
   DB[:conn].execute(sql,self.name,self.breed)
 end
+
+def self.find_by_id(id)
+  
+     sql = <<-SQL
+     SELECT * from dogs
+     WHERE id = ?
+     SQL
+
+     DB[:conn].execute(sql,name).map do |row|
+       #binding.pry
+       self.new_from_db(row)
+     end.first
+   end
+
 end #ends Dog Class
