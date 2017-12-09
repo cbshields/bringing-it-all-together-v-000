@@ -68,7 +68,7 @@ def self.find_by_id(id)
      WHERE id = ?
      SQL
      result = DB[:conn].execute(sql,id)[0]
-     Dog.new(result[0],result[1],result[2])
+     Dog.new(id: result[0], name: result[1],breed: result[2])
     #  DB[:conn].execute(sql,id).map do |row|
     #    #binding.pry
     #    self.new_from_db(row)
