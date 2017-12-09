@@ -67,11 +67,17 @@ def self.find_by_id(id)
      SELECT * from dogs
      WHERE id = ?
      SQL
+     result = DB[:conn].execute(sql,id)[0]
+     binding.pry
+    #  DB[:conn].execute(sql,id).map do |row|
+    #    #binding.pry
+    #    self.new_from_db(row)
+    #  end.first
+   end
 
-     DB[:conn].execute(sql,id).map do |row|
-       #binding.pry
-       self.new_from_db(row)
-     end.first
+   def self.find_or_create_by
+
+
    end
 
 end #ends Dog Class
